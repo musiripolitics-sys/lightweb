@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #ffffff;
+  --color-bg: #0d0d0e;
+}
+
+::selection {
+  background: #ffffff;
+  color: #0d0d0e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ----------------------------------------------------------------
+   Honorh dark satin hero background (homepage)
+----------------------------------------------------------------- */
+.honorh-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(120% 100% at 70% 20%, #1c1c1e 0%, #131314 45%, #0a0a0b 100%);
+}
+
+.honorh-bg::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  transform: rotate(-3deg) scale(1.25);
+  filter: blur(1.5px);
+  background:
+    repeating-linear-gradient(
+      116deg,
+      rgba(255, 255, 255, 0) 0px,
+      rgba(255, 255, 255, 0.075) 70px,
+      rgba(255, 255, 255, 0) 165px,
+      rgba(0, 0, 0, 0.35) 270px,
+      rgba(255, 255, 255, 0) 400px
+    ),
+    repeating-linear-gradient(
+      124deg,
+      rgba(255, 255, 255, 0) 0px,
+      rgba(255, 255, 255, 0.045) 140px,
+      rgba(0, 0, 0, 0.3) 330px,
+      rgba(255, 255, 255, 0) 560px
+    );
+}
+
+.honorh-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(130% 120% at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* ----------------------------------------------------------------
+   Photo hero background (Interior / Exterior)
+   Drop the exported Figma image into public/images/<name>.jpg and
+   pass it via the --photo custom property. A dark gradient shows
+   as a fallback until the image is present.
+----------------------------------------------------------------- */
+.photo-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(10, 12, 18, 0.45), rgba(6, 8, 12, 0.65)),
+    var(--photo, none),
+    linear-gradient(135deg, #1a1f2b 0%, #0c0e14 55%, #05060a 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
