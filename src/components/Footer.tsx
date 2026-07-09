@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const COLUMNS = [
   {
@@ -30,10 +31,13 @@ export default function Footer() {
         {/* Brand */}
         <div className="max-w-xs">
           <div className="flex flex-col gap-1.5">
-            <span className="text-[28px] font-normal leading-none tracking-[0.06em]">HONORH</span>
-            <span className="pl-0.5 text-[10px] font-light uppercase tracking-[0.5em] text-white/70">
-              Lighting for Elite
-            </span>
+            <Image 
+              src="/images/logo.png" 
+              alt="Honorh Lighting for Elite" 
+              width={180} 
+              height={60} 
+              className="w-[140px] md:w-[180px] h-auto"
+            />
           </div>
           <p className="mt-6 text-sm leading-relaxed text-white/60">
             Precision-engineered interior and exterior lighting that transforms every space.

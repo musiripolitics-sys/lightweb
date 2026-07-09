@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const NAV_LINKS = [
@@ -18,13 +19,14 @@ export default function Header({ active = "Home" }: { active?: string }) {
     <header className="flex items-start justify-between gap-6">
       {/* Logo */}
       <Link href="/" aria-label="Honorh home" className="flex flex-col gap-1.5 no-underline text-white">
-        <span className="relative text-[clamp(28px,3.2vw,44px)] font-normal leading-none tracking-[0.06em]">
-          HONORH
-          <sup className="ml-0.5 align-super text-[0.28em] font-normal">™</sup>
-        </span>
-        <span className="pl-1 text-[clamp(8px,0.8vw,11px)] font-light uppercase tracking-[0.52em] text-white/80">
-          Lighting for Elite
-        </span>
+        <Image 
+          src="/images/logo.png" 
+          alt="Honorh Lighting for Elite" 
+          width={220} 
+          height={73} 
+          className="w-[160px] md:w-[220px] h-auto"
+          priority
+        />
       </Link>
 
       {/* Desktop nav */}
