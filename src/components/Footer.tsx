@@ -13,35 +13,49 @@ const COLUMNS = [
     ],
   },
   {
-    heading: "Lighting",
+    heading: "Collections",
     links: [
       { label: "Interior Lighting", href: "/interior" },
       { label: "Exterior Lighting", href: "/exterior" },
-      { label: "Recessed Downlights", href: "/products#recessed-downlights" },
-      { label: "Floodlights", href: "/products#floodlights" },
-      { label: "Gate & Pillar Lights", href: "/products#gate-pillar-lights" },
+      { label: "COB Downlights", href: "/products#fixed-cob" },
+      { label: "Track & Display", href: "/products#track" },
+      { label: "Linear & Blade", href: "/products#linear" },
+      { label: "Outdoor & Industrial", href: "/products#outdoor" },
     ],
   },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#0a0a0b] px-[clamp(24px,5vw,72px)] py-16">
-      <div className="mx-auto flex max-w-[1360px] flex-col gap-12 md:flex-row md:justify-between">
+    <footer className="border-t border-white/10 bg-[#0a0a0b] px-[clamp(24px,5vw,72px)] pt-16 pb-8">
+      <div className="mx-auto flex max-w-[1360px] flex-col gap-12 lg:flex-row lg:justify-between">
         {/* Brand */}
-        <div className="max-w-xs">
-          <div className="flex flex-col gap-1.5">
-            <Image 
-              src="/images/logo.png" 
-              alt="Honorh Lighting for Elite" 
-              width={180} 
-              height={60} 
-              className="w-[140px] md:w-[180px] h-auto"
-            />
-          </div>
+        <div className="max-w-sm">
+          <Image
+            src="/images/logo.png"
+            alt="Honorh Lighting for Elite"
+            width={180}
+            height={60}
+            className="h-auto w-[150px] md:w-[180px]"
+          />
           <p className="mt-6 text-sm leading-relaxed text-white/60">
-            Precision-engineered interior and exterior lighting that transforms every space.
+            Precision-engineered interior and exterior lighting. CRI ≥ 95 optics,
+            deep antiglare comfort and a two-year warranty on every fixture.
           </p>
+          <div className="mt-6 flex flex-col gap-2 text-sm text-white/70">
+            <a href="mailto:hello@honorh.com" className="no-underline transition-colors hover:text-white">
+              hello@honorh.com
+            </a>
+            <a href="tel:+919876543210" className="no-underline transition-colors hover:text-white">
+              +91 98765 43210
+            </a>
+            <a
+              href="https://www.honorh.com"
+              className="no-underline transition-colors hover:text-white"
+            >
+              www.honorh.com
+            </a>
+          </div>
         </div>
 
         {/* Link columns */}
@@ -63,12 +77,26 @@ export default function Footer() {
               </ul>
             </nav>
           ))}
+
+          {/* CTA block */}
+          <div className="max-w-[240px]">
+            <h3 className="mb-5 text-xs uppercase tracking-[0.2em] text-white/50">Start a project</h3>
+            <p className="text-sm leading-relaxed text-white/60">
+              Send us your plans — we&rsquo;ll return a lighting layout and quotation.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-5 inline-flex items-center border border-white/80 px-5 py-3 text-xs uppercase tracking-[0.1em] text-white no-underline transition-colors hover:bg-white hover:text-[#0d0d0e]"
+            >
+              Get a Quote
+            </Link>
+          </div>
         </div>
       </div>
 
       <div className="mx-auto mt-14 flex max-w-[1360px] flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/40 sm:flex-row sm:justify-between">
-        <span>© {new Date().getFullYear()} Honorh. All rights reserved.</span>
-        <span>Lighting that transforms every space.</span>
+        <span>© {new Date().getFullYear()} Honorh — Lighting for Elite. All rights reserved.</span>
+        <span>Designed to inspire. Engineered to perform.</span>
       </div>
     </footer>
   );

@@ -3,6 +3,7 @@
 @theme {
   --color-ink: #ffffff;
   --color-bg: #0d0d0e;
+  --color-accent: #e5342a;
 }
 
 ::selection {
@@ -12,6 +13,12 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Slim dark scrollbar to match the theme */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
 }
 
 /* ----------------------------------------------------------------
@@ -56,10 +63,104 @@ html {
 }
 
 /* ----------------------------------------------------------------
+   Satin band — same texture as the hero but scoped to a section
+----------------------------------------------------------------- */
+.satin-band {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(120% 100% at 70% 20%, #1a1a1c 0%, #121213 45%, #0a0a0b 100%);
+}
+
+.satin-band::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  transform: rotate(-3deg) scale(1.25);
+  filter: blur(1.5px);
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    116deg,
+    rgba(255, 255, 255, 0) 0px,
+    rgba(255, 255, 255, 0.05) 70px,
+    rgba(255, 255, 255, 0) 165px,
+    rgba(0, 0, 0, 0.3) 270px,
+    rgba(255, 255, 255, 0) 400px
+  );
+}
+
+/* ----------------------------------------------------------------
+   Brand accent — black → red bar from the Figma catalogue
+----------------------------------------------------------------- */
+.accent-bar {
+  display: block;
+  height: 4px;
+  width: 220px;
+  max-width: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #000000, #7a1f1a, #e5342a);
+}
+
+/* ----------------------------------------------------------------
+   Scroll reveal (used by <Reveal />)
+----------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Logo marquee
+----------------------------------------------------------------- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 42s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ----------------------------------------------------------------
+   Product card image plate — soft studio backdrop for the photos
+----------------------------------------------------------------- */
+.image-plate {
+  background: radial-gradient(90% 90% at 50% 35%, #ffffff 0%, #f2f2f3 70%, #e7e7e9 100%);
+}
+
+/* ----------------------------------------------------------------
    Photo hero background (Interior / Exterior)
-   Drop the exported Figma image into public/images/<name>.jpg and
-   pass it via the --photo custom property. A dark gradient shows
-   as a fallback until the image is present.
 ----------------------------------------------------------------- */
 .photo-bg {
   position: fixed;

@@ -1,12 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const FIELD =
   "w-full border border-white/15 bg-transparent px-4 py-3.5 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-white/50";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [message, setMessage] = useState("");
+
+  // Prefill when arriving from a product page (…/contact/?product=Tardis).
+  useEffect(() => {
+    const product = new URLSearchParams(window.location.search).get("product");
+    if (product) {
+      // setState after mount is required here: the query string only exists
+      // client-side, and a lazy initializer would mismatch the static HTML.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setMessage(`Hi, I'd like a quotation for the ${product} fixture.\n\nProject details: `);
+    }
+  }, []);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -25,7 +37,7 @@ export default function ContactForm() {
         <button
           type="button"
           onClick={() => setSent(false)}
-          className="mt-6 text-sm uppercase tracking-[0.08em] text-white/60 underline-offset-4 hover:text-white hover:underline"
+          className="mt-6 cursor-pointer text-sm uppercase tracking-[0.08em] text-white/60 underline-offset-4 hover:text-white hover:underline"
         >
           Send another
         </button>
@@ -45,29 +57,38 @@ export default function ContactForm() {
           <input className={FIELD} type="email" name="email" required placeholder="you@email.com" />
         </label>
       </div>
-      <label className="flex flex-col gap-2">
-        <span className="text-xs uppercase tracking-[0.16em] text-white/45">Project type</span>
-        <select className={`${FIELD} appearance-none`} name="type" defaultValue="">
-          <option value="" disabled className="bg-[#0d0d0e]">
-            Select…
-          </option>
-          <option className="bg-[#0d0d0e]">Interior Lighting</option>
-          <option className="bg-[#0d0d0e]">Exterior Lighting</option>
-          <option className="bg-[#0d0d0e]">Turnkey / Both</option>
-        </select>
-      </label>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <label className="flex flex-col gap-2">
+          <span className="text-xs uppercase tracking-[0.16em] text-white/45">Phone</span>
+          <input className={FIELD} type="tel" name="phone" placeholder="+91 …" />
+        </label>
+        <label className="flex flex-col gap-2">
+          <span className="text-xs uppercase tracking-[0.16em] text-white/45">Project type</span>
+          <select className={`${FIELD} appearance-none`} name="type" defaultValue="">
+            <option value="" disabled className="bg-[#0d0d0e]">
+              Select…
+            </option>
+            <option className="bg-[#0d0d0e]">Interior Lighting</option>
+            <option className="bg-[#0d0d0e]">Exterior Lighting</option>
+            <option className="bg-[#0d0d0e]">Turnkey / Both</option>
+            <option className="bg-[#0d0d0e]">Dealer / Trade Enquiry</option>
+          </select>
+        </label>
+      </div>
       <label className="flex flex-col gap-2">
         <span className="text-xs uppercase tracking-[0.16em] text-white/45">Message</span>
         <textarea
           className={`${FIELD} min-h-[140px] resize-y`}
           name="message"
           required
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           placeholder="Tell us about your space…"
         />
       </label>
       <button
         type="submit"
-        className="mt-2 inline-flex items-center justify-center self-start border border-white/90 px-8 py-4 text-sm uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-[#0d0d0e]"
+        className="mt-2 inline-flex cursor-pointer items-center justify-center self-start border border-white bg-white px-8 py-4 text-sm uppercase tracking-[0.08em] text-[#0d0d0e] transition-colors hover:bg-transparent hover:text-white"
       >
         Send message
       </button>

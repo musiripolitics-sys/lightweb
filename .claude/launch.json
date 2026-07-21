@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "honorh-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "4173", "out"],
+      "port": 4173
+    }
+  ]
+}
