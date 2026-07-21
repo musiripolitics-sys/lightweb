@@ -17,11 +17,11 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-[1440px]">
           <Reveal>
             <span className="accent-bar" />
-            <p className="mt-6 text-xs uppercase tracking-[0.35em] text-white/45">The Catalogue</p>
-            <h1 className="mt-3 max-w-3xl text-[clamp(34px,5.2vw,64px)] font-semibold uppercase leading-[1.08] tracking-[0.01em]">
+            <p className="mt-6 text-xs uppercase tracking-[0.35em] text-black/45">The Catalogue</p>
+            <h1 className="mt-3 max-w-3xl text-[clamp(34px,5.2vw,64px)] font-semibold uppercase leading-[1.08] tracking-[0.01em] text-[#0d0d0e]">
               {PRODUCTS.length} fixtures. One standard.
             </h1>
-            <p className="mt-6 max-w-xl text-white/60">
+            <p className="mt-6 max-w-xl text-black/60">
               Every Honorh fixture ships with CRI ≥ 95 optics, tunable CCT from 3000K to
               6000K and a two-year warranty. Filter the range or search by model code.
             </p>

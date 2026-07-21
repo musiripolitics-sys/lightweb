@@ -1,34 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #ffffff;
-  --color-bg: #0d0d0e;
+  --color-ink: #0d0d0e;
+  --color-bg: #ffffff;
   --color-accent: #e5342a;
 }
 
 ::selection {
-  background: #ffffff;
-  color: #0d0d0e;
+  background: #0d0d0e;
+  color: #ffffff;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Slim dark scrollbar to match the theme */
+/* Slim light scrollbar to match the theme */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+  scrollbar-color: rgba(0, 0, 0, 0.22) transparent;
 }
 
 /* ----------------------------------------------------------------
-   Honorh dark satin hero background (homepage)
+   Honorh light satin hero background (homepage)
 ----------------------------------------------------------------- */
 .honorh-bg {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: radial-gradient(120% 100% at 70% 20%, #1c1c1e 0%, #131314 45%, #0a0a0b 100%);
+  background: radial-gradient(120% 100% at 70% 20%, #ffffff 0%, #f4f4f2 45%, #eaeae7 100%);
 }
 
 .honorh-bg::before {
@@ -41,16 +41,16 @@ html {
     repeating-linear-gradient(
       116deg,
       rgba(255, 255, 255, 0) 0px,
-      rgba(255, 255, 255, 0.075) 70px,
+      rgba(255, 255, 255, 0.6) 70px,
       rgba(255, 255, 255, 0) 165px,
-      rgba(0, 0, 0, 0.35) 270px,
+      rgba(0, 0, 0, 0.05) 270px,
       rgba(255, 255, 255, 0) 400px
     ),
     repeating-linear-gradient(
       124deg,
       rgba(255, 255, 255, 0) 0px,
-      rgba(255, 255, 255, 0.045) 140px,
-      rgba(0, 0, 0, 0.3) 330px,
+      rgba(255, 255, 255, 0.4) 140px,
+      rgba(0, 0, 0, 0.04) 330px,
       rgba(255, 255, 255, 0) 560px
     );
 }
@@ -59,7 +59,7 @@ html {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(130% 120% at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+  background: radial-gradient(130% 120% at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.06) 100%);
 }
 
 /* ----------------------------------------------------------------
@@ -68,7 +68,7 @@ html {
 .satin-band {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(120% 100% at 70% 20%, #1a1a1c 0%, #121213 45%, #0a0a0b 100%);
+  background: radial-gradient(120% 100% at 70% 20%, #ffffff 0%, #f5f5f3 45%, #ececea 100%);
 }
 
 .satin-band::before {
@@ -81,9 +81,9 @@ html {
   background: repeating-linear-gradient(
     116deg,
     rgba(255, 255, 255, 0) 0px,
-    rgba(255, 255, 255, 0.05) 70px,
+    rgba(255, 255, 255, 0.55) 70px,
     rgba(255, 255, 255, 0) 165px,
-    rgba(0, 0, 0, 0.3) 270px,
+    rgba(0, 0, 0, 0.045) 270px,
     rgba(255, 255, 255, 0) 400px
   );
 }
@@ -97,7 +97,14 @@ html {
   width: 220px;
   max-width: 100%;
   border-radius: 9999px;
-  background: linear-gradient(to right, #000000, #7a1f1a, #e5342a);
+  background: linear-gradient(to right, #0d0d0e, #7a1f1a, #e5342a);
+}
+
+/* ----------------------------------------------------------------
+   Invert the white Honorh wordmark to dark for the light theme
+----------------------------------------------------------------- */
+.logo-invert {
+  filter: brightness(0);
 }
 
 /* ----------------------------------------------------------------
@@ -122,6 +129,56 @@ html {
     transform: none;
     transition: none;
   }
+}
+
+/* ----------------------------------------------------------------
+   "Lights turn on" hero animation — crossfades the lit facade image
+   in over the dark one on load, then breathes gently to feel alive.
+----------------------------------------------------------------- */
+@keyframes lights-on {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.78;
+  }
+}
+
+.lights-on {
+  opacity: 0;
+  animation:
+    lights-on 2.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both,
+    glow-breathe 6s ease-in-out 3s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lights-on {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* Light-theme accent bar for use over dark photographic heroes */
+.accent-bar-light {
+  display: block;
+  height: 4px;
+  width: 220px;
+  max-width: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #ffffff, #f0a39e, #e5342a);
 }
 
 /* ----------------------------------------------------------------
@@ -155,8 +212,10 @@ html {
 /* ----------------------------------------------------------------
    Product card image plate — soft studio backdrop for the photos
 ----------------------------------------------------------------- */
+/* Pure-white studio plate — product photos have white backgrounds, so the
+   plate must be white too or the image edge shows as a grey rectangle. */
 .image-plate {
-  background: radial-gradient(90% 90% at 50% 35%, #ffffff 0%, #f2f2f3 70%, #e7e7e9 100%);
+  background: #ffffff;
 }
 
 /* ----------------------------------------------------------------
@@ -167,9 +226,9 @@ html {
   inset: 0;
   z-index: -2;
   background-image:
-    linear-gradient(rgba(10, 12, 18, 0.45), rgba(6, 8, 12, 0.65)),
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.6)),
     var(--photo, none),
-    linear-gradient(135deg, #1a1f2b 0%, #0c0e14 55%, #05060a 100%);
+    linear-gradient(135deg, #f0f0ee 0%, #e6e6e3 55%, #dcdcd8 100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

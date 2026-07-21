@@ -7,6 +7,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 import Reveal from "@/components/Reveal";
 import { FEATURED, PRODUCTS, FAMILIES } from "@/data/products";
 import { CLIENT_LOGOS } from "@/data/logos";
+import { WORKS } from "@/data/works";
 
 const STATS = [
   { value: `${PRODUCTS.length}+`, label: "Fixtures in range" },
@@ -43,15 +44,15 @@ export default function Home() {
       {/* ------------------------------------------------ Hero */}
       <section className="relative flex min-h-screen flex-col px-[clamp(24px,5vw,72px)]">
         <div className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col items-center justify-end pb-[clamp(48px,10vh,110px)] pt-32 text-center">
-          <p className="text-xs uppercase tracking-[0.4em] text-white/50">
+          <p className="text-xs uppercase tracking-[0.4em] text-black/50">
             Lighting for Elite
           </p>
-          <h1 className="mt-6 text-[clamp(30px,4.4vw,64px)] font-semibold uppercase leading-[1.1] tracking-[0.015em]">
+          <h1 className="mt-6 text-[clamp(30px,4.4vw,64px)] font-semibold uppercase leading-[1.1] tracking-[0.015em] text-[#0d0d0e]">
             Lighting That Transforms
             <br />
             Every Space
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/60">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-black/60">
             Architectural fixtures with deep antiglare optics and CRI ≥ 95 colour —
             designed to inspire, engineered to perform.
           </p>
@@ -64,11 +65,11 @@ export default function Home() {
           </div>
 
           {/* Stats strip */}
-          <dl className="mt-[clamp(48px,9vh,88px)] grid w-full max-w-3xl grid-cols-2 gap-y-8 border-t border-white/10 pt-8 sm:grid-cols-4">
+          <dl className="mt-[clamp(48px,9vh,88px)] grid w-full max-w-3xl grid-cols-2 gap-y-8 border-t border-black/10 pt-8 sm:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.label}>
-                <dd className="text-[clamp(26px,3vw,40px)] font-semibold leading-none">{s.value}</dd>
-                <dt className="mt-2 text-[11px] uppercase tracking-[0.14em] text-white/45">{s.label}</dt>
+                <dd className="text-[clamp(26px,3vw,40px)] font-semibold leading-none text-[#0d0d0e]">{s.value}</dd>
+                <dt className="mt-2 text-[11px] uppercase tracking-[0.14em] text-black/45">{s.label}</dt>
               </div>
             ))}
           </dl>
@@ -76,20 +77,20 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------ Featured collection */}
-      <section className="bg-[#0d0d0e] px-[clamp(24px,5vw,72px)] py-[clamp(64px,11vh,120px)]">
+      <section className="bg-white px-[clamp(24px,5vw,72px)] py-[clamp(64px,11vh,120px)]">
         <div className="mx-auto max-w-[1440px]">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
                 <span className="accent-bar" />
-                <p className="mt-6 text-xs uppercase tracking-[0.35em] text-white/45">The Collection</p>
-                <h2 className="mt-3 text-[clamp(26px,3.6vw,44px)] font-semibold uppercase tracking-[0.01em]">
+                <p className="mt-6 text-xs uppercase tracking-[0.35em] text-black/45">The Collection</p>
+                <h2 className="mt-3 text-[clamp(26px,3.6vw,44px)] font-semibold uppercase tracking-[0.01em] text-[#0d0d0e]">
                   Signature fixtures
                 </h2>
               </div>
               <Link
                 href="/products/"
-                className="mb-1 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-white/55 no-underline transition-colors hover:text-white"
+                className="mb-1 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-black/55 no-underline transition-colors hover:text-[#0d0d0e]"
               >
                 Explore all {PRODUCTS.length} fixtures
                 <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
@@ -110,11 +111,12 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------ Interior / Exterior gateways */}
-      <section className="bg-[#0d0d0e] px-[clamp(24px,5vw,72px)] pb-[clamp(64px,11vh,120px)]">
+      <section className="bg-white px-[clamp(24px,5vw,72px)] pb-[clamp(64px,11vh,120px)]">
         <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-6 lg:grid-cols-2">
           <GatewayCard
             href="/interior"
             image="/images/backgrounds/interior.png"
+            imageOn="/images/backgrounds/interior-hover.png"
             eyebrow="Indoors"
             title="Interior Lighting"
             body="COB spotlights, magnetic track, linears and wallwashers for homes, retail and hospitality."
@@ -122,10 +124,62 @@ export default function Home() {
           <GatewayCard
             href="/exterior"
             image="/images/backgrounds/exterior.png"
+            imageOn="/images/backgrounds/exterior-hover.png"
             eyebrow="Outdoors"
             title="Exterior Lighting"
             body="Bollards, gate lanterns, facade washers and street lighting built for the elements."
           />
+        </div>
+      </section>
+
+      {/* ------------------------------------------------ Our Work */}
+      <section className="bg-[#f6f6f5] px-[clamp(24px,5vw,72px)] py-[clamp(64px,11vh,120px)]">
+        <div className="mx-auto max-w-[1440px]">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <span className="accent-bar" />
+                <p className="mt-6 text-xs uppercase tracking-[0.35em] text-black/45">Our Work</p>
+                <h2 className="mt-3 text-[clamp(26px,3.6vw,44px)] font-semibold uppercase tracking-[0.01em] text-[#0d0d0e]">
+                  Lighting in the real world
+                </h2>
+              </div>
+              <Link
+                href="/projects/"
+                className="mb-1 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-black/55 no-underline transition-colors hover:text-[#0d0d0e]"
+              >
+                View all projects
+                <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                  <path d="M2 8h11M9 3.5 13.5 8 9 12.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+              {WORKS.slice(0, 4).map((work) => (
+                <Link
+                  key={work.image}
+                  href="/projects/"
+                  className="group relative block aspect-[3/4] overflow-hidden border border-black/10 no-underline"
+                >
+                  <Image
+                    src={work.image}
+                    alt={work.title}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-4">
+                    <h3 className="text-xs font-semibold uppercase tracking-[0.04em] text-white">{work.title}</h3>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-white/70">{work.type}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -134,18 +188,18 @@ export default function Home() {
         <div className="relative mx-auto max-w-[1440px]">
           <Reveal>
             <span className="accent-bar" />
-            <p className="mt-6 text-xs uppercase tracking-[0.35em] text-white/45">Behind the Light</p>
-            <h2 className="mt-3 max-w-2xl text-[clamp(26px,3.6vw,44px)] font-semibold uppercase leading-[1.12] tracking-[0.01em]">
+            <p className="mt-6 text-xs uppercase tracking-[0.35em] text-black/45">Behind the Light</p>
+            <h2 className="mt-3 max-w-2xl text-[clamp(26px,3.6vw,44px)] font-semibold uppercase leading-[1.12] tracking-[0.01em] text-[#0d0d0e]">
               Precision you can feel, glare you can&rsquo;t
             </h2>
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden border border-black/10 bg-black/10 sm:grid-cols-2 lg:grid-cols-4">
             {PILLARS.map((pillar, i) => (
               <Reveal key={pillar.title} delay={i * 80} className="h-full">
-                <div className="flex h-full flex-col bg-[#0d0d0e]/95 p-8">
-                  <span className="text-xs font-semibold text-white/30">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-4 text-lg font-semibold uppercase tracking-[0.02em]">{pillar.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/60">{pillar.body}</p>
+                <div className="flex h-full flex-col bg-white p-8">
+                  <span className="text-xs font-semibold text-black/25">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-4 text-lg font-semibold uppercase tracking-[0.02em] text-[#0d0d0e]">{pillar.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-black/60">{pillar.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -154,10 +208,10 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------ Clients */}
-      <section className="bg-[#0d0d0e] px-[clamp(24px,5vw,72px)] py-[clamp(56px,9vh,100px)]">
+      <section className="bg-[#f6f6f5] px-[clamp(24px,5vw,72px)] py-[clamp(56px,9vh,100px)]">
         <div className="mx-auto max-w-[1440px]">
           <Reveal>
-            <p className="text-center text-xs uppercase tracking-[0.35em] text-white/45">
+            <p className="text-center text-xs uppercase tracking-[0.35em] text-black/45">
               Trusted by leading brands & builders
             </p>
           </Reveal>
@@ -167,7 +221,7 @@ export default function Home() {
           <Reveal className="mt-8 text-center">
             <Link
               href="/clients/"
-              className="text-xs uppercase tracking-[0.14em] text-white/50 no-underline transition-colors hover:text-white"
+              className="text-xs uppercase tracking-[0.14em] text-black/50 no-underline transition-colors hover:text-[#0d0d0e]"
             >
               Meet our clients →
             </Link>
@@ -176,21 +230,21 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------ CTA */}
-      <section className="bg-[#0d0d0e] px-[clamp(24px,5vw,72px)] pb-[clamp(64px,11vh,120px)]">
+      <section className="bg-white px-[clamp(24px,5vw,72px)] py-[clamp(64px,11vh,120px)]">
         <Reveal>
-          <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-8 border border-white/12 bg-white/[0.02] p-[clamp(32px,5vw,72px)] md:flex-row md:items-center md:justify-between">
+          <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-8 border border-black/12 bg-[#f6f6f5] p-[clamp(32px,5vw,72px)] md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="max-w-xl text-[clamp(24px,3.2vw,40px)] font-semibold uppercase leading-[1.15]">
+              <h2 className="max-w-xl text-[clamp(24px,3.2vw,40px)] font-semibold uppercase leading-[1.15] text-[#0d0d0e]">
                 Ready to light your next project?
               </h2>
-              <p className="mt-4 max-w-lg text-white/60">
+              <p className="mt-4 max-w-lg text-black/60">
                 Share your plans and our lighting team will return a layout, fixture
                 schedule and quotation.
               </p>
             </div>
             <Link
               href="/contact/"
-              className="inline-flex shrink-0 items-center justify-center border border-white bg-white px-8 py-4 text-sm uppercase tracking-[0.08em] text-[#0d0d0e] no-underline transition-colors hover:bg-transparent hover:text-white"
+              className="inline-flex shrink-0 items-center justify-center border border-[#0d0d0e] bg-[#0d0d0e] px-8 py-4 text-sm uppercase tracking-[0.08em] text-white no-underline transition-colors hover:bg-transparent hover:text-[#0d0d0e]"
             >
               Get a Quote
             </Link>
@@ -217,8 +271,8 @@ function HeroButton({
       href={href}
       className={`inline-flex min-w-[190px] items-center justify-center border px-[26px] py-[15px] text-sm uppercase tracking-[0.08em] no-underline transition-colors duration-200 ${
         solid
-          ? "border-white bg-white text-[#0d0d0e] hover:bg-transparent hover:text-white"
-          : "border-white/90 text-white hover:bg-white hover:text-[#0d0d0e]"
+          ? "border-[#0d0d0e] bg-[#0d0d0e] text-white hover:bg-transparent hover:text-[#0d0d0e]"
+          : "border-[#0d0d0e]/80 text-[#0d0d0e] hover:bg-[#0d0d0e] hover:text-white"
       }`}
     >
       {children}
@@ -229,12 +283,14 @@ function HeroButton({
 function GatewayCard({
   href,
   image,
+  imageOn,
   eyebrow,
   title,
   body,
 }: {
   href: string;
   image: string;
+  imageOn: string;
   eyebrow: string;
   title: string;
   body: string;
@@ -243,14 +299,23 @@ function GatewayCard({
     <Reveal className="h-full">
       <Link
         href={href}
-        className="group relative flex min-h-[380px] h-full flex-col justify-end overflow-hidden border border-white/10 no-underline"
+        className="group relative flex min-h-[380px] h-full flex-col justify-end overflow-hidden border border-black/10 no-underline"
       >
+        {/* Off state */}
         <Image
           src={image}
           alt=""
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
-          className="object-cover brightness-[1.55] transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-[1.75]"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+        {/* Lit state — glows on when hovered */}
+        <Image
+          src={imageOn}
+          alt=""
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover opacity-0 transition-[opacity,transform] duration-700 ease-out group-hover:scale-105 group-hover:opacity-100"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         <div className="relative p-[clamp(24px,3vw,44px)]">

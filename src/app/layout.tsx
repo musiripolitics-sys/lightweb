@@ -19,8 +19,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d0d0e",
-  colorScheme: "dark",
+  themeColor: "#ffffff",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.variable} antialiased`}>
       <body
-        className="min-h-screen bg-[#0d0d0e] text-white overflow-x-hidden"
+        className="min-h-screen bg-white text-[#0d0d0e] overflow-x-hidden"
         style={{ fontFamily: "var(--font-poppins), system-ui, sans-serif" }}
       >
         {children}

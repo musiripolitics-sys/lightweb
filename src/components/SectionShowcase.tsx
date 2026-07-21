@@ -27,7 +27,7 @@ export default function SectionShowcase({ sections }: { sections: Section[] }) {
 function SectionTile({ item }: { item: SectionItem }) {
   const inner = (
     <>
-      <div className="relative aspect-square w-full">
+      <div className="image-plate relative aspect-square w-full">
         <Image
           src={item.image}
           alt={item.name}
@@ -36,8 +36,8 @@ function SectionTile({ item }: { item: SectionItem }) {
           className="object-contain p-5 transition-transform duration-500 ease-out group-hover:scale-110"
         />
       </div>
-      <div className="flex items-center justify-between gap-2 border-t border-white/10 px-4 py-3">
-        <span className="truncate text-[11px] uppercase tracking-[0.1em] text-white/65 transition-colors group-hover:text-white">
+      <div className="flex items-center justify-between gap-2 border-t border-black/10 px-4 py-3">
+        <span className="truncate text-[11px] uppercase tracking-[0.1em] text-black/65 transition-colors group-hover:text-[#0d0d0e]">
           {item.name}
         </span>
         {item.productSlug && (
@@ -49,7 +49,7 @@ function SectionTile({ item }: { item: SectionItem }) {
             stroke="currentColor"
             strokeWidth="1.5"
             aria-hidden="true"
-            className="shrink-0 text-white/35 transition-colors group-hover:text-white"
+            className="shrink-0 text-black/35 transition-colors group-hover:text-[#0d0d0e]"
           >
             <path d="M2 8h11M9 3.5 13.5 8 9 12.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -59,7 +59,7 @@ function SectionTile({ item }: { item: SectionItem }) {
   );
 
   const cls =
-    "group flex flex-col overflow-hidden border border-white/10 bg-white/[0.03] transition-colors duration-300 hover:border-white/30 hover:bg-white/[0.06]";
+    "group flex flex-col overflow-hidden border border-black/10 bg-white transition-all duration-300 hover:border-black/25 hover:shadow-md";
 
   return item.productSlug ? (
     <Link href={`/products/${item.productSlug}/`} className={`${cls} no-underline`}>
