@@ -39,7 +39,7 @@ export default function ProjectsGallery({ works }: { works: Work[] }) {
             key={work.image}
             type="button"
             onClick={() => setOpen(i)}
-            className={`group relative block cursor-pointer overflow-hidden border border-black/10 ${
+            className={`group relative block cursor-pointer overflow-hidden border border-white/10 ${
               i % 5 === 0 ? "lg:col-span-2" : ""
             }`}
           >

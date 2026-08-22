@@ -44,14 +44,14 @@ export default async function ProductDetailPage({
       <article className="px-[clamp(24px,5vw,72px)] pt-[clamp(28px,5vh,56px)]">
         <div className="mx-auto max-w-[1440px]">
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="text-xs uppercase tracking-[0.12em] text-black/40">
-            <Link href="/products/" className="no-underline transition-colors hover:text-[#0d0d0e]">
+          <nav aria-label="Breadcrumb" className="text-xs uppercase tracking-[0.12em] text-white/40">
+            <Link href="/products/" className="no-underline transition-colors hover:text-white">
               Products
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-black/60">{family.title}</span>
+            <span className="text-white/60">{family.title}</span>
             <span className="mx-2">/</span>
-            <span className="text-[#0d0d0e]">{product.name}</span>
+            <span className="text-white">{product.name}</span>
           </nav>
 
           <div className="mt-8 grid grid-cols-1 gap-[clamp(32px,4vw,64px)] lg:grid-cols-2">
@@ -65,29 +65,29 @@ export default async function ProductDetailPage({
               <div className="flex flex-col">
                 <span className="accent-bar" />
                 <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <h1 className="text-[clamp(34px,4.5vw,56px)] font-semibold uppercase leading-none tracking-[0.01em] text-[#0d0d0e]">
+                  <h1 className="text-[clamp(34px,4.5vw,56px)] font-semibold uppercase leading-none tracking-[0.01em] text-white">
                     {product.name}
                   </h1>
                   {product.isNew && (
-                    <span className="border border-black/25 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-black/70">
+                    <span className="border border-white/25 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/70">
                       New launch
                     </span>
                   )}
                 </div>
-                <p className="mt-2 text-sm uppercase tracking-[0.14em] text-black/50">{product.type}</p>
-                <p className="mt-6 max-w-lg text-lg leading-relaxed text-black/70">{product.blurb}</p>
+                <p className="mt-2 text-sm uppercase tracking-[0.14em] text-white/50">{product.type}</p>
+                <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/70">{product.blurb}</p>
 
                 {/* Key facts */}
-                <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden border border-black/10 bg-black/10 sm:grid-cols-4">
+                <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-4">
                   {[
                     ["Wattage", wattRange(product)],
                     ["CCT", "3000K–6000K"],
                     ["CRI", "≥ 95"],
                     ["Warranty", "2 Years"],
                   ].map(([k, v]) => (
-                    <div key={k} className="bg-[#f6f6f5] px-4 py-4">
-                      <dt className="text-[10px] uppercase tracking-[0.18em] text-black/45">{k}</dt>
-                      <dd className="mt-1.5 text-sm font-semibold text-[#0d0d0e]">{v}</dd>
+                    <div key={k} className="bg-white/[0.04] px-4 py-4">
+                      <dt className="text-[10px] uppercase tracking-[0.18em] text-white/45">{k}</dt>
+                      <dd className="mt-1.5 text-sm font-semibold text-white">{v}</dd>
                     </div>
                   ))}
                 </dl>
@@ -96,19 +96,19 @@ export default async function ProductDetailPage({
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Link
                     href={`/contact/?product=${encodeURIComponent(product.name)}`}
-                    className="inline-flex items-center justify-center border border-[#0d0d0e] bg-[#0d0d0e] px-7 py-4 text-sm uppercase tracking-[0.08em] text-white no-underline transition-colors hover:bg-transparent hover:text-[#0d0d0e]"
+                    className="inline-flex items-center justify-center border border-white bg-white px-7 py-4 text-sm uppercase tracking-[0.08em] text-[#0d0d0e] no-underline transition-colors hover:bg-transparent hover:text-white"
                   >
                     Request a quote
                   </Link>
                   <Link
                     href="/products/"
-                    className="inline-flex items-center justify-center border border-black/40 px-7 py-4 text-sm uppercase tracking-[0.08em] text-black/80 no-underline transition-colors hover:border-[#0d0d0e] hover:text-[#0d0d0e]"
+                    className="inline-flex items-center justify-center border border-white/40 px-7 py-4 text-sm uppercase tracking-[0.08em] text-white/80 no-underline transition-colors hover:border-white hover:text-white"
                   >
                     Back to catalogue
                   </Link>
                 </div>
 
-                <p className="mt-6 text-xs leading-relaxed text-black/40">
+                <p className="mt-6 text-xs leading-relaxed text-white/40">
                   CCT options: {product.cct}. R1–R15 &gt; 90 available on request.
                 </p>
               </div>
@@ -117,11 +117,11 @@ export default async function ProductDetailPage({
 
           {/* Spec table */}
           <Reveal className="mt-[clamp(48px,8vh,88px)]">
-            <h2 className="text-xl font-semibold uppercase tracking-[0.03em] text-[#0d0d0e]">Specifications</h2>
-            <div className="mt-6 overflow-x-auto border border-black/10">
+            <h2 className="text-xl font-semibold uppercase tracking-[0.03em] text-white">Specifications</h2>
+            <div className="mt-6 overflow-x-auto border border-white/10">
               <table className="w-full min-w-[560px] border-collapse text-left text-sm">
                 <thead>
-                  <tr className="border-b border-black/10 bg-black/[0.04] text-[11px] uppercase tracking-[0.14em] text-black/50">
+                  <tr className="border-b border-white/10 bg-white/[0.04] text-[11px] uppercase tracking-[0.14em] text-white/50">
                     <th className="px-5 py-4 font-medium">Model</th>
                     <th className="px-5 py-4 font-medium">Size (mm)</th>
                     {hasCutout && <th className="px-5 py-4 font-medium">Cut-out</th>}
@@ -133,9 +133,9 @@ export default async function ProductDetailPage({
                   {product.variants.map((v) => (
                     <tr
                       key={v.code + v.watt}
-                      className="border-b border-black/5 text-black/75 transition-colors last:border-b-0 hover:bg-black/[0.03] hover:text-[#0d0d0e]"
+                      className="border-b border-white/5 text-white/75 transition-colors last:border-b-0 hover:bg-white/[0.06] hover:text-white"
                     >
-                      <td className="px-5 py-4 font-semibold text-[#0d0d0e]">{v.code}</td>
+                      <td className="px-5 py-4 font-semibold text-white">{v.code}</td>
                       <td className="px-5 py-4">{v.size}</td>
                       {hasCutout && <td className="px-5 py-4">{v.cutout ?? "—"}</td>}
                       <td className="px-5 py-4">{v.watt}</td>
@@ -151,12 +151,12 @@ export default async function ProductDetailPage({
           {related.length > 0 && (
             <Reveal className="mt-[clamp(48px,8vh,88px)] pb-[clamp(64px,12vh,140px)]">
               <div className="flex items-end justify-between gap-6">
-                <h2 className="text-xl font-semibold uppercase tracking-[0.03em] text-[#0d0d0e]">
+                <h2 className="text-xl font-semibold uppercase tracking-[0.03em] text-white">
                   More from {family.title}
                 </h2>
                 <Link
                   href="/products/"
-                  className="text-xs uppercase tracking-[0.12em] text-black/50 no-underline transition-colors hover:text-[#0d0d0e]"
+                  className="text-xs uppercase tracking-[0.12em] text-white/50 no-underline transition-colors hover:text-white"
                 >
                   View all →
                 </Link>

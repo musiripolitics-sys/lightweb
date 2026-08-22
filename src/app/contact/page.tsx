@@ -19,25 +19,25 @@ export default function ContactPage() {
     <SiteShell active="Contact">
       <section className="px-[clamp(24px,5vw,72px)] pb-[clamp(64px,12vh,140px)] pt-[clamp(48px,10vh,110px)]">
         <div className="mx-auto max-w-[1360px]">
-          <p className="text-xs uppercase tracking-[0.35em] text-black/45">Contact</p>
-          <h1 className="mt-4 max-w-3xl text-[clamp(32px,5vw,62px)] font-semibold uppercase leading-[1.08] tracking-[0.01em] text-[#0d0d0e]">
+          <p className="text-xs uppercase tracking-[0.35em] text-white/45">Contact</p>
+          <h1 className="mt-4 max-w-3xl text-[clamp(32px,5vw,62px)] font-semibold uppercase leading-[1.08] tracking-[0.01em] text-white">
             Let&rsquo;s light your space
           </h1>
 
           <div className="mt-14 grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.1fr]">
             {/* Details */}
             <div className="flex flex-col gap-10">
-              <p className="max-w-md text-lg leading-relaxed text-black/60">
+              <p className="max-w-md text-lg leading-relaxed text-white/60">
                 Tell us about your project — interior, exterior or full turnkey. Our team
                 will get back within one business day.
               </p>
               <dl className="flex flex-col gap-7">
                 {DETAILS.map((d) => (
                   <div key={d.label}>
-                    <dt className="text-xs uppercase tracking-[0.2em] text-black/45">{d.label}</dt>
-                    <dd className="mt-1.5 text-lg text-[#0d0d0e]">
+                    <dt className="text-xs uppercase tracking-[0.2em] text-white/45">{d.label}</dt>
+                    <dd className="mt-1.5 text-lg text-white">
                       {d.href ? (
-                        <a href={d.href} className="no-underline transition-colors hover:text-black/60">
+                        <a href={d.href} className="no-underline transition-colors hover:text-white/60">
                           {d.value}
                         </a>
                       ) : (

@@ -43,8 +43,8 @@ export default function CatalogueBrowser() {
             onClick={() => setFamily(null)}
             className={`${CHIP} ${
               family === null
-                ? "border-[#0d0d0e] bg-[#0d0d0e] text-white"
-                : "border-black/20 text-black/60 hover:border-black/50 hover:text-[#0d0d0e]"
+                ? "border-white bg-white text-[#0d0d0e]"
+                : "border-white/20 text-white/60 hover:border-white/50 hover:text-white"
             }`}
           >
             All · {PRODUCTS.length}
@@ -58,8 +58,8 @@ export default function CatalogueBrowser() {
                 onClick={() => setFamily(family === f.slug ? null : f.slug)}
                 className={`${CHIP} ${
                   family === f.slug
-                    ? "border-[#0d0d0e] bg-[#0d0d0e] text-white"
-                    : "border-black/20 text-black/60 hover:border-black/50 hover:text-[#0d0d0e]"
+                    ? "border-white bg-white text-[#0d0d0e]"
+                    : "border-white/20 text-white/60 hover:border-white/50 hover:text-white"
                 }`}
               >
                 {f.title} · {count}
@@ -79,7 +79,7 @@ export default function CatalogueBrowser() {
             strokeWidth="1.8"
             strokeLinecap="round"
             aria-hidden="true"
-            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-black/40"
+            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-white/40"
           >
             <circle cx="11" cy="11" r="7" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -89,14 +89,14 @@ export default function CatalogueBrowser() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search name or code…"
-            className="w-full border border-black/15 bg-transparent py-3 pl-11 pr-4 text-sm text-[#0d0d0e] outline-none transition-colors placeholder:text-black/35 focus:border-black/50"
+            className="w-full border border-white/15 bg-transparent py-3 pl-11 pr-4 text-sm text-white outline-none transition-colors placeholder:text-white/35 focus:border-white/50"
           />
         </label>
       </div>
 
       {/* Active family tagline */}
       {family && (
-        <p className="mt-6 text-sm text-black/55">
+        <p className="mt-6 text-sm text-white/55">
           {FAMILIES.find((f) => f.slug === family)?.tagline}
         </p>
       )}
@@ -109,7 +109,7 @@ export default function CatalogueBrowser() {
           ))}
         </div>
       ) : (
-        <div className="mt-16 border border-black/10 p-12 text-center text-black/50">
+        <div className="mt-16 border border-white/10 p-12 text-center text-white/50">
           No fixtures match &ldquo;{query}&rdquo;. Try a model code like HN1104 or a name like Tardis.
         </div>
       )}

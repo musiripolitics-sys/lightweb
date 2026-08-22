@@ -2,6 +2,13 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "honorh-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "4173"],
+      "port": 4173,
+      "autoPort": true
+    },
+    {
       "name": "honorh-static",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["serve", "-l", "4173", "out"],

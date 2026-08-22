@@ -16,7 +16,7 @@ export default function SiteShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className="flex min-h-screen flex-col bg-[#0d0d0e]">
       <Header active={active} onDark={headerOnDark} />
       <main className="flex-1 pt-[88px]">{children}</main>
       <Footer />

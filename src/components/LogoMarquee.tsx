@@ -14,7 +14,7 @@ export default function LogoMarquee({ logos }: { logos: Logo[] }) {
         {strip.map((logo, i) => (
           <div
             key={`${logo.file}-${i}`}
-            className="flex h-[76px] w-[190px] shrink-0 items-center justify-center border border-black/10 bg-[#f7f7f6] px-7"
+            className="flex h-[76px] w-[190px] shrink-0 items-center justify-center border border-white/10 bg-white px-7"
             aria-hidden={i >= logos.length}
           >
             <Image

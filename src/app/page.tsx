@@ -38,21 +38,37 @@ const PILLARS = [
 export default function Home() {
   return (
     <>
-      <div className="honorh-bg" aria-hidden="true" />
       <Header active="Home" />
 
       {/* ------------------------------------------------ Hero */}
-      <section className="relative flex min-h-screen flex-col px-[clamp(24px,5vw,72px)]">
+      <section className="relative flex min-h-screen flex-col overflow-hidden px-[clamp(24px,5vw,72px)]">
+        {/* Animated satin background */}
+        <div className="absolute inset-0 -z-10 bg-[#0d0d0e]" aria-hidden="true">
+          <video
+            className="h-full w-full object-cover brightness-[0.55]"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/videos/home-poster.jpg"
+          >
+            <source src="/videos/home.webm" type="video/webm" />
+            <source src="/videos/home.mp4" type="video/mp4" />
+          </video>
+          {/* Legibility scrim */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60" />
+        </div>
+
         <div className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col items-center justify-end pb-[clamp(48px,10vh,110px)] pt-32 text-center">
-          <p className="text-xs uppercase tracking-[0.4em] text-black/50">
+          <p className="text-xs uppercase tracking-[0.4em] text-white/55">
             Lighting for Elite
           </p>
-          <h1 className="mt-6 text-[clamp(30px,4.4vw,64px)] font-semibold uppercase leading-[1.1] tracking-[0.015em] text-[#0d0d0e]">
+          <h1 className="mt-6 text-[clamp(30px,4.4vw,64px)] font-semibold uppercase leading-[1.1] tracking-[0.015em] text-white">
             Lighting That Transforms
             <br />
             Every Space
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-black/60">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65">
             Architectural fixtures with deep antiglare optics and CRI ≥ 95 colour —
             designed to inspire, engineered to perform.
           </p>
@@ -65,11 +81,11 @@ export default function Home() {
           </div>
 
           {/* Stats strip */}
-          <dl className="mt-[clamp(48px,9vh,88px)] grid w-full max-w-3xl grid-cols-2 gap-y-8 border-t border-black/10 pt-8 sm:grid-cols-4">
+          <dl className="mt-[clamp(48px,9vh,88px)] grid w-full max-w-3xl grid-cols-2 gap-y-8 border-t border-white/15 pt-8 sm:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.label}>
-                <dd className="text-[clamp(26px,3vw,40px)] font-semibold leading-none text-[#0d0d0e]">{s.value}</dd>
-                <dt className="mt-2 text-[11px] uppercase tracking-[0.14em] text-black/45">{s.label}</dt>
+                <dd className="text-[clamp(26px,3vw,40px)] font-semibold leading-none text-white">{s.value}</dd>
+                <dt className="mt-2 text-[11px] uppercase tracking-[0.14em] text-white/45">{s.label}</dt>
               </div>
             ))}
           </dl>
@@ -77,20 +93,20 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------ Featured collection */}
-      <section className="bg-white px-[clamp(24px,5vw,72px)] py-[clamp(64px,11vh,120px)]">
+      <section className="bg-[#0d0d0e] px-[clamp(24px,5vw,72px)] py-[clamp(64px,11vh,120px)]">
         <div className="mx-auto max-w-[1440px]">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
                 <span className="accent-bar" />
-                <p className="mt-6 text-xs uppercase tracking-[0.35em] text-black/45">The Collection</p>
-                <h2 className="mt-3 text-[clamp(26px,3.6vw,44px)] font-semibold uppercase tracking-[0.01em] text-[#0d0d0e]">
+                <p className="mt-6 text-xs uppercase tracking-[0.35em] text-white/45">The Collection</p>
+                <h2 className="mt-3 text-[clamp(26px,3.6vw,44px)] font-semibold uppercase tracking-[0.01em] text-white">
                   Signature fixtures
                 </h2>
               </div>
               <Link
                 href="/products/"
-                className="mb-1 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-black/55 no-underline transition-colors hover:text-[#0d0d0e]"
+                className="mb-1 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-white/55 no-underline transition-colors hover:text-white"
               >
                 Explore all {PRODUCTS.length} fixtures
                 <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
@@ -111,7 +127,7 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------ Interior / Exterior gateways */}
-      <section className="bg-white px-[clamp(24px,5vw,72px)] pb-[clamp(64px,11vh,120px)]">
+      <section className="bg-[#0d0d0e] px-[clamp(24px,5vw,72px)] pb-[clamp(64px,11vh,120px)]">
         <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-6 lg:grid-cols-2">
           <GatewayCard
             href="/interior"
@@ -133,20 +149,20 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------ Our Work */}
-      <section className="bg-[#f6f6f5] px-[clamp(24px,5vw,72px)] py-[clamp(64px,11vh,120px)]">
+      <section className="bg-[#0a0a0b] px-[clamp(24px,5vw,72px)] py-[clamp(64px,11vh,120px)]">
         <div className="mx-auto max-w-[1440px]">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
                 <span className="accent-bar" />
-                <p className="mt-6 text-xs uppercase tracking-[0.35em] text-black/45">Our Work</p>
-                <h2 className="mt-3 text-[clamp(26px,3.6vw,44px)] font-semibold uppercase tracking-[0.01em] text-[#0d0d0e]">
+                <p className="mt-6 text-xs uppercase tracking-[0.35em] text-white/45">Our Work</p>
+                <h2 className="mt-3 text-[clamp(26px,3.6vw,44px)] font-semibold uppercase tracking-[0.01em] text-white">
                   Lighting in the real world
                 </h2>
               </div>
               <Link
                 href="/projects/"
-                className="mb-1 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-black/55 no-underline transition-colors hover:text-[#0d0d0e]"
+                className="mb-1 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-white/55 no-underline transition-colors hover:text-white"
               >
                 View all projects
                 <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
@@ -162,7 +178,7 @@ export default function Home() {
                 <Link
                   key={work.image}
                   href="/projects/"
-                  className="group relative block aspect-[3/4] overflow-hidden border border-black/10 no-underline"
+                  className="group relative block aspect-[3/4] overflow-hidden border border-white/10 no-underline"
                 >
                   <Image
                     src={work.image}
@@ -188,18 +204,18 @@ export default function Home() {
         <div className="relative mx-auto max-w-[1440px]">
           <Reveal>
             <span className="accent-bar" />
-            <p className="mt-6 text-xs uppercase tracking-[0.35em] text-black/45">Behind the Light</p>
-            <h2 className="mt-3 max-w-2xl text-[clamp(26px,3.6vw,44px)] font-semibold uppercase leading-[1.12] tracking-[0.01em] text-[#0d0d0e]">
+            <p className="mt-6 text-xs uppercase tracking-[0.35em] text-white/45">Behind the Light</p>
+            <h2 className="mt-3 max-w-2xl text-[clamp(26px,3.6vw,44px)] font-semibold uppercase leading-[1.12] tracking-[0.01em] text-white">
               Precision you can feel, glare you can&rsquo;t
             </h2>
           </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden border border-black/10 bg-black/10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
             {PILLARS.map((pillar, i) => (
               <Reveal key={pillar.title} delay={i * 80} className="h-full">
-                <div className="flex h-full flex-col bg-white p-8">
-                  <span className="text-xs font-semibold text-black/25">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-4 text-lg font-semibold uppercase tracking-[0.02em] text-[#0d0d0e]">{pillar.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-black/60">{pillar.body}</p>
+                <div className="flex h-full flex-col bg-[#0d0d0e] p-8">
+                  <span className="text-xs font-semibold text-white/25">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-4 text-lg font-semibold uppercase tracking-[0.02em] text-white">{pillar.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-white/60">{pillar.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -208,10 +224,10 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------ Clients */}
-      <section className="bg-[#f6f6f5] px-[clamp(24px,5vw,72px)] py-[clamp(56px,9vh,100px)]">
+      <section className="bg-[#0d0d0e] px-[clamp(24px,5vw,72px)] py-[clamp(56px,9vh,100px)]">
         <div className="mx-auto max-w-[1440px]">
           <Reveal>
-            <p className="text-center text-xs uppercase tracking-[0.35em] text-black/45">
+            <p className="text-center text-xs uppercase tracking-[0.35em] text-white/45">
               Trusted by leading brands & builders
             </p>
           </Reveal>
@@ -221,7 +237,7 @@ export default function Home() {
           <Reveal className="mt-8 text-center">
             <Link
               href="/clients/"
-              className="text-xs uppercase tracking-[0.14em] text-black/50 no-underline transition-colors hover:text-[#0d0d0e]"
+              className="text-xs uppercase tracking-[0.14em] text-white/50 no-underline transition-colors hover:text-white"
             >
               Meet our clients →
             </Link>
@@ -230,21 +246,21 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------ CTA */}
-      <section className="bg-white px-[clamp(24px,5vw,72px)] py-[clamp(64px,11vh,120px)]">
+      <section className="bg-[#0d0d0e] px-[clamp(24px,5vw,72px)] py-[clamp(64px,11vh,120px)]">
         <Reveal>
-          <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-8 border border-black/12 bg-[#f6f6f5] p-[clamp(32px,5vw,72px)] md:flex-row md:items-center md:justify-between">
+          <div className="mx-auto flex max-w-[1440px] flex-col items-start gap-8 border border-white/12 bg-white/[0.03] p-[clamp(32px,5vw,72px)] md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="max-w-xl text-[clamp(24px,3.2vw,40px)] font-semibold uppercase leading-[1.15] text-[#0d0d0e]">
+              <h2 className="max-w-xl text-[clamp(24px,3.2vw,40px)] font-semibold uppercase leading-[1.15] text-white">
                 Ready to light your next project?
               </h2>
-              <p className="mt-4 max-w-lg text-black/60">
+              <p className="mt-4 max-w-lg text-white/60">
                 Share your plans and our lighting team will return a layout, fixture
                 schedule and quotation.
               </p>
             </div>
             <Link
               href="/contact/"
-              className="inline-flex shrink-0 items-center justify-center border border-[#0d0d0e] bg-[#0d0d0e] px-8 py-4 text-sm uppercase tracking-[0.08em] text-white no-underline transition-colors hover:bg-transparent hover:text-[#0d0d0e]"
+              className="inline-flex shrink-0 items-center justify-center border border-white bg-white px-8 py-4 text-sm uppercase tracking-[0.08em] text-[#0d0d0e] no-underline transition-colors hover:bg-transparent hover:text-white"
             >
               Get a Quote
             </Link>
@@ -271,8 +287,8 @@ function HeroButton({
       href={href}
       className={`inline-flex min-w-[190px] items-center justify-center border px-[26px] py-[15px] text-sm uppercase tracking-[0.08em] no-underline transition-colors duration-200 ${
         solid
-          ? "border-[#0d0d0e] bg-[#0d0d0e] text-white hover:bg-transparent hover:text-[#0d0d0e]"
-          : "border-[#0d0d0e]/80 text-[#0d0d0e] hover:bg-[#0d0d0e] hover:text-white"
+          ? "border-white bg-white text-[#0d0d0e] hover:bg-transparent hover:text-white"
+          : "border-white/80 text-white hover:bg-white hover:text-[#0d0d0e]"
       }`}
     >
       {children}
@@ -299,7 +315,7 @@ function GatewayCard({
     <Reveal className="h-full">
       <Link
         href={href}
-        className="group relative flex min-h-[380px] h-full flex-col justify-end overflow-hidden border border-black/10 no-underline"
+        className="group relative flex min-h-[380px] h-full flex-col justify-end overflow-hidden border border-white/10 no-underline"
       >
         {/* Off state */}
         <Image

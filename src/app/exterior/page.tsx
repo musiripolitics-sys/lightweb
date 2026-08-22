@@ -32,13 +32,13 @@ export default function ExteriorPage() {
 
           {/* CTA */}
           <Reveal className="mt-[clamp(56px,9vh,104px)]">
-            <div className="flex flex-col items-start gap-6 border border-black/12 bg-[#f6f6f5] p-[clamp(28px,5vw,64px)] md:flex-row md:items-center md:justify-between">
-              <h2 className="max-w-xl text-[clamp(22px,3vw,36px)] font-semibold uppercase leading-tight text-[#0d0d0e]">
+            <div className="flex flex-col items-start gap-6 border border-white/12 bg-white/[0.03] p-[clamp(28px,5vw,64px)] md:flex-row md:items-center md:justify-between">
+              <h2 className="max-w-xl text-[clamp(22px,3vw,36px)] font-semibold uppercase leading-tight text-white">
                 Planning a landscape or facade project?
               </h2>
               <Link
                 href="/contact/"
-                className="inline-flex shrink-0 items-center justify-center border border-[#0d0d0e] bg-[#0d0d0e] px-7 py-4 text-sm uppercase tracking-[0.08em] text-white no-underline transition-colors hover:bg-transparent hover:text-[#0d0d0e]"
+                className="inline-flex shrink-0 items-center justify-center border border-white bg-white px-7 py-4 text-sm uppercase tracking-[0.08em] text-[#0d0d0e] no-underline transition-colors hover:bg-transparent hover:text-white"
               >
                 Get a Quote
               </Link>

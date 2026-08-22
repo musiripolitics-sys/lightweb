@@ -61,11 +61,11 @@ export default function ClientsPage() {
         <div className="mx-auto max-w-[1440px]">
           <Reveal>
             <span className="accent-bar" />
-            <p className="mt-6 text-xs uppercase tracking-[0.35em] text-black/45">Our Clients</p>
-            <h1 className="mt-3 max-w-3xl text-[clamp(32px,5vw,62px)] font-semibold uppercase leading-[1.08] tracking-[0.01em] text-[#0d0d0e]">
+            <p className="mt-6 text-xs uppercase tracking-[0.35em] text-white/45">Our Clients</p>
+            <h1 className="mt-3 max-w-3xl text-[clamp(32px,5vw,62px)] font-semibold uppercase leading-[1.08] tracking-[0.01em] text-white">
               Trusted to light the finest spaces
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-black/60">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/60">
               From international fashion houses to India&rsquo;s favourite retail chains —
               brands like Bata, Marks &amp; Spencer, Woodland and Miniso trust Honorh to
               light their stores.
@@ -108,16 +108,16 @@ export default function ClientsPage() {
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
             {TESTIMONIALS.map((t, i) => (
               <Reveal key={t.role} delay={i * 100} className="h-full">
-                <figure className="flex h-full flex-col border border-black/12 bg-[#f6f6f5] p-8">
-                  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true" className="text-black/15">
+                <figure className="flex h-full flex-col border border-white/12 bg-white/[0.03] p-8">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true" className="text-white/15">
                     <path d="M10 7H5.5A2.5 2.5 0 0 0 3 9.5v5A2.5 2.5 0 0 0 5.5 17H8v-3H6v-3h4V7Zm11 0h-4.5A2.5 2.5 0 0 0 14 9.5v5a2.5 2.5 0 0 0 2.5 2.5H19v-3h-2v-3h4V7Z" />
                   </svg>
-                  <blockquote className="mt-4 text-lg leading-relaxed text-black/80">
+                  <blockquote className="mt-4 text-lg leading-relaxed text-white/80">
                     {t.quote}
                   </blockquote>
-                  <figcaption className="mt-6 text-sm text-[#0d0d0e]">
+                  <figcaption className="mt-6 text-sm text-white">
                     <span className="font-semibold">{t.name}</span>
-                    <span className="block text-black/50">{t.role}</span>
+                    <span className="block text-white/50">{t.role}</span>
                   </figcaption>
                 </figure>
               </Reveal>
@@ -126,13 +126,13 @@ export default function ClientsPage() {
 
           {/* CTA */}
           <Reveal className="mt-[clamp(48px,8vh,88px)]">
-            <div className="flex flex-col items-start gap-6 border border-black/12 bg-[#f6f6f5] p-[clamp(28px,5vw,64px)] md:flex-row md:items-center md:justify-between">
-              <h2 className="max-w-xl text-[clamp(22px,3vw,36px)] font-semibold uppercase leading-tight text-[#0d0d0e]">
+            <div className="flex flex-col items-start gap-6 border border-white/12 bg-white/[0.03] p-[clamp(28px,5vw,64px)] md:flex-row md:items-center md:justify-between">
+              <h2 className="max-w-xl text-[clamp(22px,3vw,36px)] font-semibold uppercase leading-tight text-white">
                 Join the list — light your next project with Honorh
               </h2>
               <Link
                 href="/contact/"
-                className="inline-flex shrink-0 items-center justify-center border border-[#0d0d0e] bg-[#0d0d0e] px-7 py-4 text-sm uppercase tracking-[0.08em] text-white no-underline transition-colors hover:bg-transparent hover:text-[#0d0d0e]"
+                className="inline-flex shrink-0 items-center justify-center border border-white bg-white px-7 py-4 text-sm uppercase tracking-[0.08em] text-[#0d0d0e] no-underline transition-colors hover:bg-transparent hover:text-white"
               >
                 Get in touch
               </Link>
